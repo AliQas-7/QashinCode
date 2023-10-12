@@ -1,0 +1,597 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.light-mode {
+    background: linear-gradient(to top, #a9c7f4, #e0e7ee);
+    color: #333;
+}
+
+body.dark-mode {
+    background: linear-gradient(to top, #210039, #bb01b8);
+    color: #fff;
+}
+
+#mode-icon {
+    border-radius: 50%;
+    color: #ff0000;
+    transition: background-color 0.3s, color 0.3s;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+}
+
+.dark-mode {
+    background-color: #1b1b1b;
+    color: #fff;
+}
+
+.mode-toggle {
+    z-index: 9999;
+    font-size: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #c3dbef, #83a1be);
+}
+
+.dark-mode .navbar {
+    background: linear-gradient(135deg, #001b4c, #22003a);
+}
+
+.navbar-brand {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0b0707;
+    padding: 10px 0;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .navbar-brand {
+    color: #eee;
+}
+
+
+.navbar-toggler-icon {
+    color: #000000;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    padding: 3px 7px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+
+
+.nav-item.nav-link {
+    color: #0b0707;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    /* Adjust padding as needed */
+    transition: background-color 0.3s ease;
+    /* Smooth hover transition */
+}
+
+.nav-item.nav-link:hover {
+    background-color: #842dfe;
+    /* Hover color */
+    border-radius: 10px;
+    /* Rounded corners on hover */
+    color: #eee8e8;
+}
+
+.nav-item.nav-link.active {
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: #000000;
+}
+
+.dark-mode .nav-item.nav-link {
+    color: #eee;
+}
+
+.dark-mode .nav-item.nav-link.active {
+    color: #000000;
+}
+
+
+/* Header Styles */
+.header {
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 10px;
+}
+
+
+.header p {
+    font-size: 18px;
+    color: #0b0707;
+    /* Light gray text */
+    margin-bottom: 20px;
+}
+
+.dark-mode .header h1 {
+    color: white;
+}
+
+.dark-mode .header p {
+    color: rgb(17, 203, 255);
+}
+
+/* Circle Image Styles */
+.circle-img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 5px solid #333;
+    background-image: url('https://scontent.fisb6-1.fna.fbcdn.net/v/t39.30808-6/320376607_525731599615466_7501133098699130070_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5614bc&_nc_eui2=AeE_BL2LnYPfxwP9CP-VXBPCg-S93ioDtxCD5L3eKgO3EI91lPrMTb_qdo9HitHbIrhVxaQ_DJmYiS63F9bZqmT2&_nc_ohc=z4woIsxoSx0AX-7LWoN&_nc_zt=23&_nc_ht=scontent.fisb6-1.fna&oh=00_AfBXH8Lhu_5PlE2P31Szhk-RjcnrPXebqnm5WaU66rsY7Q&oe=652BA5D7');
+    background-size: cover;
+    background-position: center;
+    margin-top: -1rem;
+}
+
+.social-links {
+    margin-top: -20px;
+}
+
+.social-link {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.dark-mode .social-link {
+    color: white;
+}
+
+.social-link :hover {
+    color: #842dfe;
+}
+
+.typewriter-text {
+    font-size: 40px;
+    font-weight: bold;
+    display: inline-block;
+    overflow: hidden;
+    border-right: 2px solid #333;
+    white-space: nowrap;
+    margin-top: 20px;
+    color: #000000;
+}
+
+.dark-mode .typewriter-text {
+    color: white;
+}
+
+
+/* Main Content Styles */
+.container {
+    padding: 20px;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0 auto;
+    flex-grow: 1;
+    position: relative;
+}
+
+
+.container h2 {
+    color: #842dfe;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.about,
+.skills-content,
+.courses-content,
+.project-container,
+.contact-me {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5d0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 3s ease, transform 3s ease;
+}
+
+.about:hover,
+.skills-content:hover,
+.courses-content:hover,
+.project-container:hover,
+.contact-me:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .about,
+.dark-mode .skills-content,
+.dark-mode .courses-content,
+.dark-mode .project-container,
+.dark-mode .contact-me {
+    background: linear-gradient(135deg, #210039, #1e2841);
+    color: white;
+}
+
+.appear {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.skills-box,
+.courses-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    animation: fadeIn 3s ease forwards;
+}
+
+.skill-box,
+.course-box {
+    background: linear-gradient(135deg, #c7c5c8, #9ab4f7);
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s;
+}
+
+.dark-mode .skill-box,
+.dark-mode .course-box {
+    background: linear-gradient(135deg, #300c4a, #364f90);
+}
+
+.dark-mode .skill-box:hover,
+.dark-mode .course-box:hover {
+    background: #842dfe;
+    color: #000000;
+}
+
+.skill-box:hover,
+.course-box:hover {
+    transform: scale(1.05);
+    background: #842dfe;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.skill-title,
+.course-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #ccc;
+    position: relative;
+}
+
+.progress {
+    width: 100%;
+    height: 100%;
+    background: #4CAF50;
+    animation: progress-animation 20s ease-in-out;
+}
+
+@keyframes progress-animation {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+
+.project1 {
+    background: linear-gradient(135deg, #c7c5c8, #9ab4f7);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display:flex;
+    margin-top: 1rem;
+}
+
+.project1 h1 {
+    font-size: 30px;
+}
+
+.dark-mode .project1 h1{
+    color: white;
+}
+
+.project1 :hover {
+    background: #842dfe;
+    color: white;
+}
+
+.dark-mode .project1 {
+    background: linear-gradient(135deg, #300c4a, #364f90);
+}
+
+.dark-mode .project1 :hover {
+    color: #000000;
+}
+
+#project-image,
+#project2-image,
+#project3-image,
+#project4-image {
+    width: 15rem;
+    height: 12rem;
+}
+
+
+
+.project-details {
+    padding: 20px;
+    /* Add some padding for spacing */
+}
+
+/* Style the normal (unvisited) link */
+a {
+    border-radius: 2px;
+    color: #000000;
+    /* Set the text color to a specific color, e.g., blue */
+    text-decoration: none;
+    /* Remove the underline */
+    font-weight: bold;
+    /* Make the text bold */
+}
+
+/* Style the link when the mouse is over it (hover) */
+a:hover {
+    text-decoration: underline;
+}
+
+#moretocome{
+    margin-top: 1rem;
+     color: red; 
+     font-size: 16px;
+}
+
+
+.contact-me form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-me .form2 {
+    margin-top: 1rem;
+}
+
+.contact-me label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.contact-me input,
+.contact-me textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.dark-mode .contact-me input,
+.dark-mode .contact-me textarea {
+    background: linear-gradient(135deg, #300c4a, #364f90);
+    color: white;
+}
+
+#resume-download {
+    font-size: 24px;
+    color: #842dfe;
+}
+
+.contact-me button {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dark-mode .contact-me button {
+    background-color: white;
+    color: #000000;
+}
+
+.contact-me button:hover {
+    background-color: #842dfe;
+}
+
+#e-mail{
+    color: red;
+    font-size: 20px;
+}
+
+
+
+
+.footer {
+    background: linear-gradient(90deg, #d7e0e8, #bad8f4);
+    color: #040101;
+    text-align: center;
+    padding: 20px 0;
+    transition: padding 0.3s;
+}
+
+.dark-mode .footer {
+    background: linear-gradient(135deg, #001b4c, #22003a);
+    color: #ffffff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    .mode-toggle {
+        font-size: 32px;
+        bottom: 0;
+        /* Adjust as needed */
+        right: 10px;
+        position: absolute;
+        /* Position the icon absolutely within the container */
+    }
+
+    .nav-item.nav-link.active {
+        border-radius: 10px;
+    }
+
+    .header {
+        padding: 30px 0;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .header p {
+        font-size: 12px;
+        color: #777;
+        margin-bottom: 20px;
+    }
+
+
+    .circle-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .typewriter-text {
+        font-size: 24px;
+        font-weight: bold;
+        display: inline-block;
+        overflow: hidden;
+        border-right: 2px solid #333;
+        white-space: nowrap;
+        margin-top: 10px;
+        color: #842dfe;
+    }
+
+    .container {
+        padding: 10px;
+        flex-grow: 1;
+    }
+
+    .about,
+    .skills-content,
+    .courses-content,
+    .project-container,
+    .contact-me {
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+    }
+
+    .about:hover,
+    .skills-content:hover,
+    .courses-content:hover,
+    .project-container:hover {
+        transform: scale(1.02);
+        transition: transform 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .social-link {
+        font-size: 14px;
+    }
+
+
+    #social-small .social-link{
+        font-size: 24px;
+    }
+
+    #email{
+        color: red;
+        font-size: 20px;
+    }
+
+    .skill-box,
+    .course-box {
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .skill-title {
+        font-size: 14px;
+    }
+
+    .course-title {
+        font-size: 10px;
+    }
+
+    .project1 {
+        margin-top: 2rem;
+        display: block;
+    }
+
+    .project1 h1 {
+        font-size: 24px;
+    }
+
+    .project1 p {
+        font-size: 14px;
+    }
+
+    #project-image,
+    #project2-image,
+    #project3-image,
+    #project4-image {
+        width: 100%;
+        height: 10rem;
+    }
+
+    #resume-download {
+        font-size: 14px;
+    }
+
+
+    .footer {
+        padding: 10px 0;
+        /* Adjust the padding for smaller screens */
+    }
+
+}
